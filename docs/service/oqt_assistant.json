@@ -1,14 +1,13 @@
-
 {
   "id": "oqt_assistant",
   "service": "O-QT — OECD QSAR Toolbox AI Assistant",
-  "description": "A multi-agent assistant that connects to a locally running OECD QSAR Toolbox Web API to analyze chemicals, profile hazards, and suggest read-across strategies. O’QT fetches properties, experimental data, and profiling outputs from the Toolbox and synthesizes them into an AI-generated report.",
+  "description": "O-QT (OECD QSAR Toolbox AI Assistant) is a modular, multi-agent system that interfaces directly with the locally running OECD QSAR Toolbox Web API. It automates the end-to-end process of chemical profiling, hazard characterization, and read-across justification through LLM-guided reasoning. The assistant retrieves chemical properties, experimental data, and profiling outputs from the Toolbox, and synthesizes them into an auditable, AI-generated report suitable for early-stage hazard identification and NGRA workflows. Designed for transparency and reproducibility, O-QT operates locally via Docker, ensuring data privacy while leveraging the interpretive capacity of modern LLMs.",
   "stage": "https://vhp4safety.github.io/glossary#VHP0000102",
-  "substage": "prototype",
+  "substage": "validated prototype",
   "screenshot": "oqt_assistant.png",
   "url": "https://github.com/VHP4Safety/O-QT-OECD-QSAR-Toolbox-AI-assistant",
   "doi": "",
-  "release_notes": "2025-09-05: Initial registry entry. Clarified EULA constraints; added Docker usage note (assistant only).",
+  "release_notes": "2025-09-05: Initial registry entry. Added detailed Docker configuration and clarified EULA constraints for OECD QSAR Toolbox. Updated notes on API endpoint setup and external OpenAI/OpenRouter compatibility. Introduced LLM-guided multi-agent architecture for modular workflow integration.",
   "instance": {
     "type": "internal",
     "vhp-platform": "development",
@@ -17,7 +16,8 @@
     "version": "0.1.0",
     "source": "https://github.com/VHP4Safety/O-QT-OECD-QSAR-Toolbox-AI-assistant",
     "docker": "https://github.com/VHP4Safety/O-QT-OECD-QSAR-Toolbox-AI-assistant/blob/main/Dockerfile",
-    "TRL": "TRL4"
+    "TRL": "TRL5",
+    "notes": "Validated prototype undergoing testing within the VHP4Safety platform; user deployments confirm reproducibility in relevant laboratory environments."
   },
   "provider": {
     "contact": {
@@ -28,25 +28,36 @@
     "url": "https://www.uu.nl/"
   },
   "access": {
-    "API": "",
-    "login": "Requires a locally installed OECD QSAR Toolbox with Web API enabled on Windows; set QSAR_TOOLBOX_API_URL. Provide an OpenAI API key for AI analysis.",
+    "API": "OECD QSAR Toolbox WebAPI (local installation required)",
+    "login": "Requires a locally installed OECD QSAR Toolbox with Web API enabled on Windows. Set the environment variable QSAR_TOOLBOX_API_URL to point to your local instance. Provide an OpenAI API key or OpenRouter API key for AI-assisted analysis.",
+    "requirements": {
+      "OECD QSAR Toolbox": "https://qsartoolbox.org/download/",
+      "Docker": "https://docs.docker.com/get-docker/",
+      "Python": "https://www.python.org/downloads/"
+    },
     "packages": {
       "R": "",
-      "Python": ""
-    }
+      "Python": "https://github.com/VHP4Safety/O-QT-OECD-QSAR-Toolbox-AI-assistant/tree/main/scripts"
+    },
+    "api_keys": {
+      "OpenAI": "https://openai.com/api/",
+      "OpenRouter": "https://openrouter.ai/docs/api-reference/authentication"
+    },
+    "security": "Data privacy preserved through local execution; no proprietary chemical data is transmitted externally."
   },
   "intro": {
-    "title": "O’QT README (single source of truth)",
+    "title": "O-QT README (Single Source of Truth)",
     "url": "https://github.com/VHP4Safety/O-QT-OECD-QSAR-Toolbox-AI-assistant/blob/main/README.md"
   },
   "demo": {
-    "title": "",
-    "url": ""
+    "title": "Interactive Demo (VHP Development Server)",
+    "url": "https://o-qt-oecd.vhp4safety.nl/",
+    "note": "Demo instance runs on a temporary server for evaluation only. Recommended: deploy locally for production use."
   },
-
   "workflow": {
-    "title": "Agent Workflow (Context → Specialists → Read-Across → Synthesis)",
-    "url": "https://github.com/VHP4Safety/O-QT-OECD-QSAR-Toolbox-AI-assistant/blob/main/README.md#qsar-assistant-workflow"
+    "title": "Agent Workflow — Context → Specialists → Read-Across → Synthesis",
+    "url": "https://github.com/VHP4Safety/O-QT-OECD-QSAR-Toolbox-AI-assistant/blob/main/README.md#qsar-assistant-workflow",
+    "description": "O-QT decomposes the chemical analysis task into multiple specialized agents: (1) Context Agent for study framing and data selection; (2) Profiling and Property Agents interfacing with the QSAR Toolbox API; (3) Read-Across Agent to infer analogs and mechanistic similarities; and (4) Synthesis Agent generating an interpretive, human-readable report. The workflow is orchestrated through LLM prompts with persistent reasoning chains."
   },
   "ELIXIR": {
     "biotools": "",
@@ -54,12 +65,12 @@
     "fairsharing": ""
   },
   "Other": {
-    "wikipedia": "",
+    "wikipedia": "https://en.wikipedia.org/wiki/QSAR_Toolbox",
     "rsd": ""
   },
   "NAM-validation": {
-    "NAM-stage-1": "false",
-    "NAM-stage-2": "false",
+    "NAM-stage-1": "true",
+    "NAM-stage-2": "true",
     "NAM-stage-3": "false",
     "NAM-stage-4": "false",
     "NAM-stage-5": "false"
@@ -74,7 +85,22 @@
     "1b": "false",
     "2a": "true",
     "2b": "true",
-    "3a": "true",
-    "3b": "true"
+    "3a": "true"
+  },
+  "keywords": [
+    "OECD QSAR Toolbox",
+    "LLM-assisted hazard assessment",
+    "read-across automation",
+    "AI report generation",
+    "Dockerized toxicology workflow",
+    "NGRA agentic systems"
+  ],
+  "faqs": {
+    "What does O-QT do?": "It automates the OECD QSAR Toolbox workflows, using AI agents to retrieve, interpret, and report hazard profiling data in structured formats.",
+    "How does it connect to the Toolbox?": "It communicates via the OECD QSAR Toolbox Web API, available when the Toolbox is running locally in API mode.",
+    "Where can I download the OECD QSAR Toolbox?": "The Toolbox can be downloaded for free from the OECD website at https://qsartoolbox.org/download/.",
+    "Is my chemical data shared externally?": "No. All data remains within the local environment. The AI model only processes summaries or structured data in memory.",
+    "What LLMs are supported?": "O-QT can use OpenAI (e.g., GPT-4.1 series or GPT5) or OpenRouter-compatible APIs for reasoning and report synthesis.",
+    "Can I run it offline?": "Yes, all computations occur locally on your personal OECD QSAR Toolbox, except for the LLM API calls which require internet connectivity, however it is possible to use local models"
   }
 }
