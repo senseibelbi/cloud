@@ -123,7 +123,7 @@ A web application for visualization of Adverse Outcome Pathway (AOP) networks an
 
 #### ASReview
 
-Open-source active-learning software for transparent and efficient systematic literature reviews. [[more information](service/asreview.md)]
+Open-source active-learning software for transparent and efficient systematic literature reviews; preferred open-source alternative to proprietary screening platforms. [[more information](service/asreview.md)]
 
 #### BMDExpress-3
 
