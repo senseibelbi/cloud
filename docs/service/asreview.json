@@ -4,6 +4,7 @@
   "description": "Open-source active-learning software for transparent and efficient systematic literature reviews; preferred open-source alternative to proprietary screening platforms.",
   "stage": "https://vhp4safety.github.io/glossary#VHP0000149",
   "substage": "https://vhp4safety.github.io/glossary#VHP0000053",
+  "screenshot": "asreview.jpg",
   "url": "https://asreview.nl/",
   "doi": "10.1038/s42256-020-00287-7",
   "instance": {
