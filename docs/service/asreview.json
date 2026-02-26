@@ -1,31 +1,51 @@
 {
   "id": "asreview",
   "service": "ASReview",
-  "description": "Open-source active-learning software for transparent and efficient systematic literature reviews.",
+  "description": "Open-source active-learning software for transparent and efficient systematic literature reviews; preferred open-source alternative to proprietary screening platforms.",
   "stage": "https://vhp4safety.github.io/glossary#VHP0000149",
   "substage": "https://vhp4safety.github.io/glossary#VHP0000053",
   "url": "https://asreview.nl/",
   "doi": "10.1038/s42256-020-00287-7",
-  "source": "https://github.com/asreview/asreview",
-  "license": "Apache-2.0",
   "instance": {
-    "type": "external"
+    "type": "external",
+    "url": "https://asreview.nl/",
+    "license": "Apache-2.0",
+    "source": "https://github.com/asreview/asreview"
   },
   "provider": {
     "contact": {
       "name": "ASReview Team",
       "email": "asreview@uu.nl"
-    }
+    },
+    "name": "Utrecht University",
+    "url": "https://www.uu.nl/"
   },
   "access": {
-    "API": "Python",
+    "API": "Python API / CLI",
     "login": "No",
     "packages": {
       "Python": "https://github.com/asreview/asreview"
     }
   },
+  "intro": {
+    "title": "ASReview Documentation",
+    "url": "https://asreview.readthedocs.io/"
+  },
+  "demo": {
+    "title": "ASReview LAB (web interface)",
+    "url": "https://asreview.readthedocs.io/en/latest/lab/index.html"
+  },
+  "workflow": {
+    "title": "Getting started tutorial",
+    "url": "https://asreview.readthedocs.io/en/latest/lab/get_started.html"
+  },
   "ELIXIR": {
-    "biotools": "asreview"
+    "biotools": "asreview",
+    "tess": "asreview"
+  },
+  "Other": {
+    "wikipedia": "",
+    "rsd": ""
   },
   "regulatory-question": {
     "1a": "false",
