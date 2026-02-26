@@ -5,6 +5,7 @@
 
 Open-source active-learning software for transparent and efficient systematic literature reviews; preferred open-source alternative to proprietary screening platforms.
 
+![ASReview logo](https://raw.githubusercontent.com/VHP4Safety/cloud/main/docs/service/asreview.png)
 
 **Main Webpage:** [https://asreview.nl/](https://asreview.nl/)
 

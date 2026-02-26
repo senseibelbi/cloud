@@ -45,6 +45,8 @@ A user-interface for preprocessing and statistically analyzing RNA-sequencing an
 
 ------------------------
 
+![ASReview logo](https://raw.githubusercontent.com/VHP4Safety/cloud/main/docs/service/asreview.jpg)
+
 ## ASReview
 
 Open-source active-learning software for transparent and efficient systematic literature reviews; preferred open-source alternative to proprietary screening platforms. [[more information](service/asreview.md)]
